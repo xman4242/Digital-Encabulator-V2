@@ -20,10 +20,14 @@ void setup()
     Brain.Setup();
     Robot.Setup();
 
-    Serial.print("MainLoop: Executing on core ");
+    Serial.print("Main Loop: Executing on core ");
     Serial.println(xPortGetCoreID());
     xTaskCreatePinnedToCore(WatchdogTask, "WatchdogTask", 10000, NULL, 1, NULL, 1);
+    Serial.print("Watchdog Loop: Executing on core ");
+    Serial.println(xPortGetCoreID());
     xTaskCreatePinnedToCore(AutonTask, "AutonTask", 10000, NULL, 1, NULL, 1);
+    Serial.print("Auton Loop: Executing on core ");
+    Serial.println(xPortGetCoreID());
 }
 
 //Arduino 'loop' function
