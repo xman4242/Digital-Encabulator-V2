@@ -80,7 +80,7 @@ void ROBOT::Loop()
     State.EnableVal = digitalRead(EnablePin);
 
     //Write To Motor Controllers
-    if (_NextMotorControllerWriteMillis < millis())
+    if (_NextMotorControllerWriteMillis < millis() && Auton._RunningAuton == "")
     {
         _NextMotorControllerWriteMillis = millis() + 20;
         DriveLeft.SetMotorSpeed(DriveLeftSpeed);
@@ -97,7 +97,7 @@ void ROBOT::Loop()
             Brain.OLED.clearDisplay();
             Brain.OLED.setCursor(0, 0);
             Brain.OLED.setTextSize(2);
-            Brain.OLED.print("ARMED ");                 
+            Brain.OLED.print("ARMED ");
             Brain.OLED.setTextSize(1);
             Brain.OLED.print(Auton.QueuedProgramName());
             Brain.OLED.display();
