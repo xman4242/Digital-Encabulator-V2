@@ -27,7 +27,7 @@ void AUTONOMOUS::Loop()
 
 void AUTONOMOUS::ExecAuton1()
 {
-    
+    Serial.println("Auton1");
 }
 void AUTONOMOUS::ExecAuton2()
 {

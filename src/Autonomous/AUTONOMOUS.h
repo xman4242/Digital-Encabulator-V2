@@ -3,24 +3,20 @@
 #include <Arduino.h>
 #include <Encabulator_AUTON.h>
 
-    class ROBOT;
+class ROBOT;
 
-    class AUTONOMOUS : public ENCABULATOR_AUTON
-    {
+class AUTONOMOUS : public ENCABULATOR_AUTON
+{
 
-    public:
+public:
     AUTONOMOUS(ROBOT &refRobot);
     void Loop();
 
-
-    private:
+private:
     ROBOT &Robot;
 
     void ExecAuton1();
     void ExecAuton2();
     void ExecAuton3();
     void ExecAuton4();
-
-    };
-
-
+};

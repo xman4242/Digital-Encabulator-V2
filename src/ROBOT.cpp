@@ -4,9 +4,6 @@ ROBOT::ROBOT(DIGITAL_ENCABULATOR &rBrain) : Brain(rBrain),
      DriveLeft(_DriveLeftPWM, &Brain.PWM2, _DriveLeftDir, _DriveLeftReversed), 
      DriveRight(_DriveRightPWM, &Brain.PWM2, _DriveRightDir, _DriveRightReversed), 
     Auton(*this)
-    
-       
-
 {
 }
 
@@ -88,8 +85,6 @@ void ROBOT::Loop()
         _NextMotorControllerWriteMillis = millis() + 20;
         DriveLeft.SetMotorSpeed(DriveLeftSpeed);
         DriveRight.SetMotorSpeed(DriveRightSpeed);
-        Serial.print("Drive Right Speed"); 
-        Serial.println(DriveRightSpeed);
     }
 
     //Write the Display and controller
@@ -137,5 +132,6 @@ void ROBOT::Loop()
         //Change the rumble to zero after we write it
         LargeRumble = 0;
         SmallRumble = 0;
+        
     }
 }
